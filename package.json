@@ -1,0 +1,23 @@
+{
+  "name": "apm-on-render",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/newbietek/apm-on-render.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/newbietek/apm-on-render/issues"
+  },
+  "homepage": "https://github.com/newbietek/apm-on-render#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "pm2": "^5.3.0"
+  }
+}
