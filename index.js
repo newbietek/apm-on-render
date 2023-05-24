@@ -31,7 +31,7 @@ app.post('/', (req, res) => {
 		res.json(req.body);
 	} catch (ex) {
 		logger.error(ex);
-		res.status(500).statusMessage('Internal server error');
+		res.status(500).send('Internal server error');
 	}
 });
 
