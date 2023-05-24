@@ -18,6 +18,7 @@
   "homepage": "https://github.com/newbietek/apm-on-render#readme",
   "dependencies": {
     "express": "^4.18.2",
-    "pm2": "^5.3.0"
+    "pm2": "^5.3.0",
+    "winston": "^3.8.2"
   }
 }

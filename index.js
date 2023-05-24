@@ -1,18 +1,37 @@
 const express = require('express');
+const winston = require('winston');
+const { combine, timestamp, json, errors } = winston.format;
+const logger = winston.createLogger({
+	level: 'http',
+	format: combine(
+		errors({ stack: true }),
+		timestamp({
+			format: 'YYYY-MM-DD hh:mm:ss.SSS',
+		}),
+		json()
+	),
+	transports: [new winston.transports.Console()],
+});
+
 const app = express();
 
 app.use(express.json());
 
 app.get('/', (req, res) => {
-	console.log('Get endpoint is invoked');
+	logger.warn('Get endpoint is invoked');
 	res.json({
 		message: '🦄🌈✨👋🌎🌍🌏✨🌈🦄',
 	});
 });
 
 app.post('/', (req, res) => {
-	console.log('Post endpoint is invoked', req.body);
-	res.json(req.body);
+	try {
+		logger.info('Post endpoint is invoked');
+		throw new Error(JSON.stringify(req.body));
+		res.json(req.body);
+	} catch (ex) {
+		logger.error(ex);
+	}
 });
 
 const port = 3000;
